@@ -2,6 +2,9 @@ package com.android.kiemtra19110030;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,24 +15,33 @@ import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
+
+
+    private Button btnChupHinh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         Intent intent = getIntent();
 
-        ArrayList<String> listResult = intent.getStringArrayListExtra("EXTRA_RESULT");
+        ArrayList<String> listResult = intent.getStringArrayListExtra("RESULT");
 
         DecimalFormatSymbols symbols = new DecimalFormatSymbols();
         symbols.setDecimalSeparator(',');
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###,### đ" , symbols);
-        String result1 = decimalFormat.format(Double.parseDouble(listResult.get(0)));
-        String result2 = decimalFormat.format(Double.parseDouble(listResult.get(1)));
+        String laiNhanDuoc = decimalFormat.format(Double.parseDouble(listResult.get(0)));
+        String tongTien = decimalFormat.format(Double.parseDouble(listResult.get(1)));
 
-        TextView resultTextView1 = findViewById(R.id.txtLaiNhanDuoc);
-        TextView resultTextView2 = findViewById(R.id.txtTongTien);
+        TextView txtLaiNhanDuoc = findViewById(R.id.txtLaiNhanDuoc);
+        TextView txtTongTien = findViewById(R.id.txtTongTien);
 
-        resultTextView1.setText(result1);
-        resultTextView2.setText(result2);
+        txtLaiNhanDuoc.setText(laiNhanDuoc);
+        txtTongTien.setText(tongTien);
+    }
+    public void BtnCamera(View view) {
+        btnChupHinh = findViewById(R.id.btnChupHinh);
+        Intent cameraIntent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(cameraIntent, 121);
+        finish();
     }
 }

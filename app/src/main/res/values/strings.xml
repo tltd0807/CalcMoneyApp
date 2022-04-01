@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Kiem Tra 19110030</string>
+    <string name="AppLabel">CÔNG CỤ TÍNH LÃI TIỀN GỬI</string>
+    <string name="label1">Số tiền gửi *</string>
+    <string name="label2">Lãi suất gửi *</string>
+    <string name="label3">Kỳ hạn gửi</string>
+    <string name="vnd">đ</string>
+    <string name="laisuat">%/Năm</string>
+    <string name="month">Tháng</string>
+    <string name="buttonLabel1">XEM KẾT QUẢ</string>
+    <string name="Labelactivity2_1">Số tiền lãi nhận được</string>
+    <string name="Labelactivity2_3">Tổng số tiền nhận được khi đến hạn</string>
+    <string name="bthCamera">TAKE A PICTURE</string>
 </resources>
